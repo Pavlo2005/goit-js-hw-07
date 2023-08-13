@@ -15,4 +15,4 @@ function createPicture(arr) {
 
 gallery.insertAdjacentHTML('beforeend', createPicture(galleryItems));
 
-new SimpleLightbox({ elements: ".gallery a" });
+new SimpleLightbox('.gallery a', { captionsData: "alt", captionDelay: 250, });

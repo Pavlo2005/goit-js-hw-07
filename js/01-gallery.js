@@ -35,12 +35,16 @@ function handlerPictureClick(evt) {
 
   instance = basicLightbox.create(`
     <img src="${evt.target.dataset.source}" alt="">
-`);
-
+`,{
+    onShow: () => {
+      document.addEventListener('keydown', handlerKeydown);
+    },
+    onClose: () => {
+      document.removeEventListener('keydown', handlerKeydown);
+    }
+  });
   instance.show();
 }
-
-document.addEventListener('keydown', handlerKeydown);
 
 function handlerKeydown(evt) {
   if (evt.code === 'Escape' || basicLightbox.visible()) {
